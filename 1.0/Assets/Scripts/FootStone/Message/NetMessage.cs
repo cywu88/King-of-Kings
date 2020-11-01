@@ -1,7 +1,7 @@
 ﻿/******************************************************************
-**Authro: foolyoo	
-**日期:   2020年11月1日 
-**描述：  消息处理基类
+**Author:  Foolyoo	
+**Date:    2020-11-01 
+**Describe：  消息处理基类
 ********************************************************************/
 using System.Text;
 namespace FootStone
@@ -82,7 +82,7 @@ namespace FootStone
         /// </summary>
         /// <param name="lf">写字符流</param>
         /// <returns>写的长度</returns>
-        public virtual int ToByte(StreamHelper lf)
+        public virtual int ToByte(ref StreamHelper lf)
         {
             //系统回放消息只保存内容
             if(IsReplayMessage)
@@ -161,7 +161,7 @@ namespace FootStone
         /// </summary>
         /// <param name="lf"></param>
         /// <returns></returns>
-        public virtual bool FromByte(StreamHelper lf)
+        public virtual bool FromByte(ref StreamHelper lf)
         {
             return false;
         }

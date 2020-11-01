@@ -46,7 +46,7 @@ namespace FootStone
                 else
                 {
                     int nOffset = m_steam.GetOffset();
-                    int nMsgLen = lstMsg[i].ToByte(m_steam);
+                    int nMsgLen = lstMsg[i].ToByte(ref m_steam);
                     int nWriteLen = m_steam.GetOffset() - nOffset;
                     if (nWriteLen != nMsgLen)
                     {
