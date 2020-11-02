@@ -4,9 +4,9 @@ using System.Net.Sockets;
 
 namespace FootStone
 {
-    public class NetAsynRecevice : NetAsynBase
+    public class NetAsynReceive : NetAsynBase
     {
-        public NetAsynRecevice(Socket sock)
+        public NetAsynReceive(Socket sock)
             : base(sock)
         {
             
