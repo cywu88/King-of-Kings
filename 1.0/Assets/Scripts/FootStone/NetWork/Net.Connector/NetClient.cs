@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FootStone
 {
-    public class NetClient
+    public class NetClient : NetConnector
     {
 
     }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace FootStone
 {
-    public class NetClientFactory
+    public interface NetClientAdapter
     {
-
+        bool Connect(string host, int port);
+        bool Disconnect();
+        void Send(ISendMessage msg);
     }
 }

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace FootStone
 {
-    interface NetClientAdapter
+    public class IProtocol
     {
+        public const int FIXED_HEAD_SIZE = 4;
     }
+
 }
