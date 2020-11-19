@@ -36,17 +36,25 @@ namespace FootStone
         {
             this.buffer.Write(data, offset, count);
         }
+
+        protected abstract void Disposing();
     }
 
     public abstract class ISendMessage : IProtocolMessage
     {
-
+        protected override void Disposing()
+        {
+     
+        } 
     }
 
 
     public abstract class IRecvMessage : IProtocolMessage
     {
-
+        protected override void Disposing()
+        {
+     
+        }
     }
 
 }
