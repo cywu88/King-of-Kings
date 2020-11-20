@@ -55,6 +55,10 @@ namespace FootStone
     }
 
 
+    public delegate void OnConnectHandler();
+    public delegate void OnMessageHandler(IRecvMessage msg);
+
+
     public class NetConnector
     {
         public enum ClientID
@@ -71,21 +75,19 @@ namespace FootStone
         {
             this.msg_pool = new MessagePool();
             this.adapter = NetClientFactory.Instance.CreateAdapter(this);
+            this.adapter.onConnect += OnConnect;
         }
- 
-        //protected internal void send(ISerializable msg, MessageType msgType, uint send_id)
-        //{
-        //    try
-        //    {
-        //        var send = msg_pool.AllocSend();
-        //        send.InitWithMessage(msgType, send_id, msg);
-        //        adapter.Send(send);
-        //    }
-        //    catch (Exception err)
-        //    {
-        //        onError(err);
-        //    }
-        //}
+
+        private void OnConnect()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual bool Connect(string host, int port)
+        {
+            return this.adapter.Connect(host, port);
+        }
+         
 
         protected internal void send<T>(ClientID clientID, MessageID id, T data) where T : class, ProtoBuf.IExtensible
         {

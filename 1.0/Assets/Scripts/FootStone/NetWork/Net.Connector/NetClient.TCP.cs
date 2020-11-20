@@ -14,9 +14,12 @@ namespace FootStone
 
         private TcpClient _tcp;
 
-        public bool connecting { get; private set; }
+        public event OnConnectHandler onConnect;
+        public event OnMessageHandler onMessage;
 
-        private bool _isFree = false;
+        public bool connecting { get; private set; }
+         
+
 
         public NetTCP(NetConnector client)
         {
@@ -255,14 +258,18 @@ namespace FootStone
                 _on_error(so, CloseReason.Error, err);
             }
         }
+
         private void _received_package(MessagePool.RecvMessage recv_object)
         {
-            //TODO 收到包了
+            _received_message(recv_object);
         }
 
-        private void _received_message(MessagePool.RecvMessage recv_object)
+        private void _received_message(MessagePool.RecvMessage message)
         {
-            
+            if (onMessage != null)
+            {
+                onMessage(message);
+            }
         }
 
 

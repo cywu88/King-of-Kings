@@ -11,5 +11,8 @@ namespace FootStone
         bool Connect(string host, int port);
         bool Disconnect();
         void Send(ISendMessage msg);
+
+        event OnConnectHandler onConnect;
+        event OnMessageHandler onMessage;
     }
 }
