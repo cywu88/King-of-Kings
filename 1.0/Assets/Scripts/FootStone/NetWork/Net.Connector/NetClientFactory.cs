@@ -25,4 +25,20 @@ namespace FootStone
             return new NetTCP(client);
         }
     }
+
+    public enum CloseReason : int
+    {
+        Unknown = 0,
+
+        ClientClose = 1,
+
+        Disconnect = 2,
+
+        KickByServer = 3,
+
+        Error = 4,
+
+        TimeOut = 5,
+
+    }
 }

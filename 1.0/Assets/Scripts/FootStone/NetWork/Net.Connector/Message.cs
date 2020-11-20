@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 
 namespace FootStone
-{
-   
+{ 
     public class MessagePool
     {
         private readonly ObjectPool<SendMessage> s_SendPool;
@@ -23,18 +17,18 @@ namespace FootStone
 
         internal SendMessage AllocSend()
         {
-            SendMessage ret = s_SendPool.Get();
-            ret.BufferLength = SendMessage.FIXED_HEAD_SIZE;
-            ret.BufferPosition = 0;
+            SendMessage ret = s_SendPool.Get(); 
             return ret;
         }
+
         internal RecvMessage AllocRecv()
         {
             RecvMessage ret = s_RecvPool.Get();
-            ret.BufferLength = RecvMessage.FIXED_HEAD_SIZE;
+            ret.BufferLength = RecvMessage.MESSAGE_HEAD_SIZE;
             ret.BufferPosition = 0;
             return ret;
         }
+
         internal class SendMessage : ISendMessage
         {
             private readonly MessagePool pool;
@@ -43,6 +37,7 @@ namespace FootStone
             {
                 this.pool = pool;
             }
+             
             internal void Dispose()
             {
                 this.token = null;
@@ -50,6 +45,7 @@ namespace FootStone
                 pool.s_SendPool.Release(this);
             }
         }
+
         internal class RecvMessage : IRecvMessage
         {
             private readonly MessagePool pool;

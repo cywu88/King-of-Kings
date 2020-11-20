@@ -51,5 +51,25 @@ namespace FootStone
                 return sb.ToString();
             }
         }
+
+
+        public static string ArrayToString<T>(this T[] list, Func<T, string> tostring, string split = ", ", string prefix = "", string suffix = "")
+        {
+            using (var auto = StringBuilderObjectPool.AllocAutoRelease())
+            {
+                var sb = auto.Output;
+                for (int i = 0; i < list.Length; i++)
+                {
+                    T obj = list[i];
+                    sb.Append(prefix + tostring(obj));
+                    if (i < list.Length - 1)
+                    {
+                        sb.Append(split);
+                    }
+                    sb.Append(suffix);
+                }
+                return sb.ToString();
+            }
+        }
     }
 }
