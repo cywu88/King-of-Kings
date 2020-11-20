@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2CB32B9B-D944-4C85-49DD-B73F9106857E}</ProjectGuid>
+    <ProjectGuid>{071734AC-1534-AC8D-BFC0-F3B3AD44D4FC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2018.4.21f1</UnityVersion>
   </PropertyGroup>
@@ -60,71 +60,96 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\FootStone\Common\Dispatcher.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\Collections.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\Comparer.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\CUtils.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\ObjectPool.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\Printer.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\Reflection\ReflectionUtil.cs" />
-    <Compile Include="Assets\Scripts\FootStone\DataStruct\BetterList.cs" />
-    <Compile Include="Assets\Scripts\FootStone\IO\StreamHelper.cs" />
-    <Compile Include="Assets\Scripts\FootStone\IO\StringHelper.cs" />
-    <Compile Include="Assets\Scripts\FootStone\LockSetp\FSPFrame.cs" />
-    <Compile Include="Assets\Scripts\FootStone\LockSetp\FSPFrameController.cs" />
-    <Compile Include="Assets\Scripts\FootStone\LockSetp\FSPManager.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\BattleNetRunTime.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\DMsgErrorCode.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\DMsgFormat.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\DMsgKeyMainLogin.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\DMsgKeyRoot.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\Login\CLLS_Login.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\Login\DLoginNetMessage.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\Login\DMsgKeyMainLogin.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetManager.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetMessage.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetMessageHead.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetMessageSlink\CmdRootBase.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetMessageSlink\CmdRootLogin.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetMessageSlink\CmdRootSinkManager.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetAsync\NetAsynBase.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetAsync\NetAsynReceive.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetAsync\NetAsynSend.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetBase\NetBase.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetBase\NetRecevice.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetBase\NetSend.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetHelp\MEncrypter.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetHelp\SocketInputStream.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetHelp\SocketOutputStream.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetHelp\SocketStream.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Message\Protocol.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Message\Protocol.Message.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\KCP\KCP.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\Message.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\MessageDispatch.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClient.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClient.KCP.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClient.TCP.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClient.UDP.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClientAdapter.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClientFactory.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetConnector.cs" />
-    <Compile Include="Assets\Scripts\GameLogic\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Launcher\LuaLauncher.cs" />
-    <None Include="Assets\Resource\Shader\unityshader\ATemplate.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularVertexLevel.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\ScreenWaterDropEffect.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter9_ForwardRendering.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter7_MaskTexture.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter6_DiffusePixelLevel.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularBlinnPixelLevel.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\PBR_BRDF_DEMO.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter7_SingleTexture.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter7_WorldNormal.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter7_NormalMapTangentSpace.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter7_RampTexture.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter6_DiffuseVertexLevel.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularPixelLevel.shader" />
+    <Compile Include="Assets\Plugins\protobuf\PBMessage.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\BclHelpers.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\BufferExtension.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\BufferPool.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\CallbackAttributes.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Compiler\CompilerContext.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Compiler\CompilerDelegates.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Compiler\Local.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\DataFormat.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Extensible.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ExtensibleUtil.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\GlobalSuppressions.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Helpers.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\IExtensible.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\IExtension.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ImplicitFields.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\KeyValuePairProxy.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Meta\AttributeMap.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Meta\BasicList.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Meta\CallbackSet.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Meta\MetaType.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Meta\RuntimeTypeModel.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Meta\SubType.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Meta\TypeFormatEventArgs.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Meta\TypeModel.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Meta\ValueMember.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\NetObjectCache.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\PrefixStyle.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Properties\AssemblyInfo.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ProtoContractAttribute.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ProtoConverterAttribute.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ProtoEnumAttribute.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ProtoException.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ProtoIgnoreAttribute.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ProtoIncludeAttribute.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ProtoMemberAttribute.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ProtoReader.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ProtoWriter.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\SerializationContext.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\ArrayDecorator.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\BlobSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\BooleanSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\ByteSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\CharSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\CompiledSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\DateTimeSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\DecimalSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\DefaultValueDecorator.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\DoubleSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\EnumSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\FieldDecorator.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\GuidSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\ImmutableCollectionDecorator.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\Int16Serializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\Int32Serializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\Int64Serializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\IProtoSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\IProtoTypeSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\ISerializerProxy.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\KeyValuePairDecorator.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\ListDecorator.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\MemberSpecifiedDecorator.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\NetObjectSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\NullDecorator.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\ParseableSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\PropertyDecorator.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\ProtoDecoratorBase.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\SByteSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\SingleSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\StringSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\SubItemSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\SurrogateSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\SystemTypeSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\TagDecorator.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\TimeSpanSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\TupleSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\TypeSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\UInt16Serializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\UInt32Serializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\UInt64Serializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\Serializers\UriDecorator.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ServiceModel\ProtoBehaviorAttribute.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ServiceModel\ProtoBehaviorExtensionElement.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ServiceModel\ProtoEndpointBehavior.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ServiceModel\ProtoOperationBehavior.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\ServiceModel\XmlProtoSerializer.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\SubItemToken.cs" />
+    <Compile Include="Assets\Plugins\protobuf\ProtoBuf-Net\WireType.cs" />
+    <None Include="Assets\Plugins\protobuf\ProtoBuf-Net\Web\TODO.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/work/King-of-Kings/1.0/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -689,12 +714,6 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:/Unity2018421/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{071734AC-1534-AC8D-BFC0-F3B3AD44D4FC}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
