@@ -76,6 +76,7 @@ namespace FootStone
             this.msg_pool = new MessagePool();
             this.adapter = NetClientFactory.Instance.CreateAdapter(this);
             this.adapter.onConnect += OnConnect;
+            this.adapter.onMessage += onMessage;
         }
 
         private void OnConnect()
@@ -95,6 +96,20 @@ namespace FootStone
 
             this.send<GM_Ready>(ClientID.Frame, MessageID.GM_READY_CS, sendData);
         }
+
+        void onMessage(IRecvMessage message)
+        {
+            if (message == null)
+            {
+                return;
+            }
+            int id = message.id();
+
+            MessageDispatch.Dispatch(message);
+
+
+        }
+
 
         public virtual bool Connect(string host, int port)
         {

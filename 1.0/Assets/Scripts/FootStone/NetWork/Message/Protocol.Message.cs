@@ -49,7 +49,28 @@ namespace FootStone
 
             return true;
         }
-         
+
+        public int id()
+        {
+            int messageid = -1;
+            Decode(buffer, MESSAGE_ID_OFFSET, ref messageid);
+            return messageid;
+        }
+
+        public int version()
+        {
+            int version = -1;
+            Decode(buffer, MESSAGE_VERSION_OFFSET, ref version);
+            return version;
+        }
+
+        public int extra()
+        {
+            int extra = -1;
+            Decode(buffer, MESSAGE_EXTRA_OFFSET, ref extra);
+            return extra;
+        }
+
         public byte[] body()
         {
             int bodySize = -1;
@@ -60,9 +81,8 @@ namespace FootStone
                 return body;
             }
             return null;
-        }   
-
-
+        }
+         
         protected abstract void Disposing();
     }
 
@@ -111,6 +131,8 @@ namespace FootStone
             }
             finally { stream.Position = p; }
         }
+
+   
 
         protected override void Disposing()
         {
