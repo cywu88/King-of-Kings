@@ -80,7 +80,20 @@ namespace FootStone
 
         private void OnConnect()
         {
-            throw new NotImplementedException();
+            GM_Ready sendData = new GM_Ready();
+            sendData.roleId = 1;
+            sendData.position = new GMPoint3D
+            {
+                x = 0, y = 0, z = 0
+            };
+            sendData.direction = new GMPoint3D
+            {
+                x = 0,
+                y = 0,
+                z = 0
+            };
+
+            this.send<GM_Ready>(ClientID.Frame, MessageID.GM_READY_CS, sendData);
         }
 
         public virtual bool Connect(string host, int port)

@@ -8,6 +8,9 @@ namespace FootStone
 {
     public class NetUDP : NetClientAdapter
     {
+        public event OnConnectHandler onConnect;
+        public event OnMessageHandler onMessage;
+
         public bool Connect(string host, int port)
         {
             throw new NotImplementedException();
