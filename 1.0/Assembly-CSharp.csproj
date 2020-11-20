@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -109,6 +109,20 @@
     <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetConnector.cs" />
     <Compile Include="Assets\Scripts\GameLogic\GameManager.cs" />
     <Compile Include="Assets\Scripts\Launcher\LuaLauncher.cs" />
+    <None Include="Assets\Resource\Shader\unityshader\ATemplate.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularVertexLevel.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\ScreenWaterDropEffect.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\Chapter9_ForwardRendering.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\Chapter7_MaskTexture.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\Chapter6_DiffusePixelLevel.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularBlinnPixelLevel.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\PBR_BRDF_DEMO.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\Chapter7_SingleTexture.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\Chapter7_WorldNormal.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\Chapter7_NormalMapTangentSpace.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\Chapter7_RampTexture.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\Chapter6_DiffuseVertexLevel.shader" />
+    <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularPixelLevel.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/work/King-of-Kings/1.0/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
