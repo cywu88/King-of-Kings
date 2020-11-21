@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using UniRx.Async;
 using XLua;
+using System;
 
 public class LuaLauncher : MonoBehaviour
 {
     LuaEnv env;
     LuaTable ltentry;
+
+    Action actstart;
+    Action actupdate;
+    public bool NeedDisplose;
 
     private byte[] loader(ref string luapath)
     {
@@ -16,8 +21,7 @@ public class LuaLauncher : MonoBehaviour
     {
         env = new LuaEnv();
         env.AddLoader(loader);
-
-
+         
         string bootstrapPath = "Launcher.bootstrap_1";
         byte[] bt = loader(ref bootstrapPath);
 
@@ -26,7 +30,25 @@ public class LuaLauncher : MonoBehaviour
         {
             Debug.LogError($"lua launcher load bootstrap fail. path: {bootstrapPath}");
             return;
-        }  
+        }
+
+        ltentry = objs[0] as LuaTable;
+        if (ltentry == null)
+        {
+            Debug.LogError($"get ltentry fail. objs.length = {objs.Length}");
+            return;
+        }
+
+        ltentry.Set("_mono", this);
+        ltentry.Get("start", out actstart);
+        ltentry.Get("update", out actupdate);
+        if (actstart == null)
+        {
+            Debug.LogError($"fail to get action start in bootstrap");
+        }
+
+        NeedDisplose = false;
+
     }
 
     // Start is called before the first frame update
@@ -50,16 +72,43 @@ public class LuaLauncher : MonoBehaviour
         Debug.Log("UabManager initialize success");
          
         bootstrap();
-        //actstart?.Invoke(); 
+
+        actstart?.Invoke(); 
 
     }
 
-        // Update is called once per frame
-    void Update()
+    // Update is called once per frame
+    private void Update()
     {
-        
+        if (NeedDisplose)
+        {
+            NeedDisplose = false;
+            Dispose();
+            return;
+        }
+        if (env == null)
+        {
+            return;
+        }
+        actupdate?.Invoke();
     }
-     
+
+    public void Dispose()
+    {
+        env.Tick();
+        env.FullGc();
+        env.Dispose(true);
+        env = null;
+
+        ltentry = null;
+        actstart = null;
+        actupdate = null;
+
+        GC.Collect();
+
+        Debug.Log("LuaLauncher disposed..."); 
+    }
+
 
     void OnDisable()
     {
