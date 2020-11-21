@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using FootStone;
+using PBMessage;
+using UnityEngine;
 
 public class FSPParam
 {
@@ -25,13 +27,47 @@ public class GameManager
         Instance = new GameManager();
     }
 
+    private NetConnector connecor;
 
     public FSPManager m_mgrFSP;      // FSP管理器
 
     //初始化游戏逻辑
     public void InitGame()
     {
+        this.RegisterReceiver();
 
+        connecor = new NetConnector();
+        connecor.Connect("127.0.0.1", 1255);
+    }
+
+    public void RegisterReceiver()
+    {
+        #region Message
+        MessageDispatch.RegisterReceiver<GM_Accept>(MessageID.GM_ACCEPT_SC, OnAccept);
+        #endregion
+    }
+
+    public void UnRegisterReceiver()
+    {
+        #region Message
+        MessageDispatch.UnRegisterReceiver<GM_Accept>(MessageID.GM_ACCEPT_SC, OnAccept);
+
+        #endregion
+    }
+
+    public void Stop()
+    {
+        this.UnRegisterReceiver();
+        Debug.Log("destroy");
+    }
+
+
+    private void OnAccept(GM_Accept recvData)
+    {
+        if (recvData == null)
+        {
+            return;
+        } 
     }
 
     public void Start()

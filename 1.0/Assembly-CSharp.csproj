@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Common\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Core\ResourceMgr_New.cs" />
     <Compile Include="Assets\Scripts\FootStone\Common\Dispatcher.cs" />
     <Compile Include="Assets\Scripts\FootStone\Core\Collections.cs" />
     <Compile Include="Assets\Scripts\FootStone\Core\Comparer.cs" />
@@ -111,19 +113,95 @@
     <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetConnector.cs" />
     <Compile Include="Assets\Scripts\GameLogic\GameManager.cs" />
     <Compile Include="Assets\Scripts\Launcher\LuaLauncher.cs" />
+    <Compile Include="Assets\Scripts\UAB\Common\UabDef.cs" />
+    <Compile Include="Assets\Scripts\UAB\Common\UabFileUtil.cs" />
+    <Compile Include="Assets\Scripts\UAB\Common\UabLog.cs" />
+    <Compile Include="Assets\Scripts\UAB\Manager\UabManager.cs" />
+    <Compile Include="Assets\Scripts\UAB\Manager\UabManager.Editor.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\01_Helloworld\Helloworld.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\02_U3DScripting\LuaBehaviour.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\04_LuaObjectOrented\InvokeLua.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\05_NoGc\NoGc.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\06_Coroutine\Coroutine_Runner.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\06_Coroutine\CoroutineTest.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\07_AsyncTest\AsyncTest.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\07_AsyncTest\MessageBox.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\08_Hotfix\HotfixTest.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\08_Hotfix\HotfixTest2.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\08_Hotfix\StatefullTest.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\09_GenericMethod\Foo.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\09_GenericMethod\GenericMethodExample.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\10_SignatureLoader\SignatureLoaderTest.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\11_RawObject\RawObjectTest.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\12_ReImplementInLua\ReImplementInLua.cs" />
+    <Compile Include="Assets\Scripts\XLua\Examples\ExampleGenConfig.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\CodeEmit.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\CopyByValue.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\DelegateBridge.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\GenAttributes.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\GenericDelegateBridge.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\InternalGlobals.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\LuaBase.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\LuaDLL.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\LuaEnv.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\LuaException.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\LuaFunction.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\LuaTable.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\MethodWarpsCache.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\ObjectCasters.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\ObjectPool.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\ObjectTranslator.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\ObjectTranslatorPool.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\RawObject.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\SignatureLoader.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\StaticLuaCallbacks.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\TemplateEngine\TemplateEngine.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\TypeExtensions.cs" />
+    <Compile Include="Assets\Scripts\XLua\Src\Utils.cs" />
+    <Compile Include="Assets\Scripts\XLua\Tutorial\CSharpCallLua\CSCallLua.cs" />
+    <Compile Include="Assets\Scripts\XLua\Tutorial\LoadLuaScript\ByFile\ByFile.cs" />
+    <Compile Include="Assets\Scripts\XLua\Tutorial\LoadLuaScript\ByString\ByString.cs" />
+    <Compile Include="Assets\Scripts\XLua\Tutorial\LoadLuaScript\Loader\CustomLoader.cs" />
+    <Compile Include="Assets\Scripts\XLua\Tutorial\LuaCallCSharp\LuaCallCs.cs" />
+    <None Include="Assets\Resources\Shader\unityshader\Chapter9_ForwardRendering.shader" />
+    <None Include="Assets\Resources\Shader\unityshader\Chapter7_RampTexture.shader" />
+    <None Include="Assets\Scripts\XLua\Examples\07_AsyncTest\Resources\message_box.lua.txt" />
+    <None Include="Assets\Scripts\XLua\Examples\06_Coroutine\Resources\cs_coroutine.lua.txt" />
     <None Include="Assets\Resource\Shader\unityshader\ATemplate.shader" />
+    <None Include="Assets\Scripts\XLua\Examples\02_U3DScripting\LuaTestScript.lua.txt" />
     <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularVertexLevel.shader" />
+    <None Include="Assets\Resources\Shader\unityshader\Chapter6_SpecularVertexLevel.shader" />
+    <None Include="Assets\Resources\Shader\unityshader\Chapter6_SpecularBlinnPixelLevel.shader" />
+    <None Include="Assets\Scripts\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />
+    <None Include="Assets\Resources\Shader\unityshader\Chapter7_SingleTexture.shader" />
+    <None Include="Assets\Scripts\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
+    <None Include="Assets\Scripts\XLua\Examples\06_Coroutine\Resources\coruntine_test.lua.txt" />
+    <None Include="Assets\Resources\Shader\unityshader\ATemplate.shader" />
+    <None Include="Assets\Scripts\XLua\Resources\xlua\util.lua.txt" />
     <None Include="Assets\Resource\Shader\unityshader\ScreenWaterDropEffect.shader" />
+    <None Include="Assets\Scripts\XLua\Examples\03_UIEvent\ButtonInteraction.lua.txt" />
+    <None Include="Assets\Resources\Shader\unityshader\Chapter7_MaskTexture.shader" />
+    <None Include="Assets\Resources\Shader\unityshader\Chapter7_NormalMapTangentSpace.shader" />
+    <None Include="Assets\Resources\Shader\unityshader\Chapter6_DiffusePixelLevel.shader" />
     <None Include="Assets\Resource\Shader\unityshader\Chapter9_ForwardRendering.shader" />
     <None Include="Assets\Resource\Shader\unityshader\Chapter7_MaskTexture.shader" />
     <None Include="Assets\Resource\Shader\unityshader\Chapter6_DiffusePixelLevel.shader" />
+    <None Include="Assets\Resources\Shader\unityshader\Chapter6_DiffuseVertexLevel.shader" />
+    <None Include="Assets\Scripts\XLua\Resources\perf\profiler.lua.txt" />
     <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularBlinnPixelLevel.shader" />
     <None Include="Assets\Resource\Shader\unityshader\PBR_BRDF_DEMO.shader" />
     <None Include="Assets\Resource\Shader\unityshader\Chapter7_SingleTexture.shader" />
     <None Include="Assets\Resource\Shader\unityshader\Chapter7_WorldNormal.shader" />
     <None Include="Assets\Resource\Shader\unityshader\Chapter7_NormalMapTangentSpace.shader" />
+    <None Include="Assets\Resources\Shader\unityshader\PBR_BRDF_DEMO.shader" />
+    <None Include="Assets\Scripts\XLua\Resources\perf\memory.lua.txt" />
     <None Include="Assets\Resource\Shader\unityshader\Chapter7_RampTexture.shader" />
+    <None Include="Assets\Resources\Shader\unityshader\Chapter6_SpecularPixelLevel.shader" />
+    <None Include="Assets\Resources\Shader\unityshader\Chapter7_WorldNormal.shader" />
+    <None Include="Assets\Scripts\XLua\CHANGELOG.txt" />
+    <None Include="Assets\Scripts\XLua\Resources\tdr\tdr.lua.txt" />
     <None Include="Assets\Resource\Shader\unityshader\Chapter6_DiffuseVertexLevel.shader" />
+    <None Include="Assets\Resources\Shader\unityshader\ScreenWaterDropEffect.shader" />
     <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularPixelLevel.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/work/King-of-Kings/1.0/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -694,6 +772,14 @@
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{071734AC-1534-AC8D-BFC0-F3B3AD44D4FC}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.Async.csproj">
+      <Project>{AE7A6AE2-A8E0-8568-10E7-9FF58CB261FD}</Project>
+      <Name>UniRx.Async</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.Async.Editor.csproj">
+      <Project>{B333F761-289B-2995-11D9-2BF5172713DA}</Project>
+      <Name>UniRx.Async.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

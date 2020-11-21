@@ -1,63 +1,70 @@
 ﻿using UnityEngine;
-using FootStone;
-using PBMessage; 
-
+using UniRx.Async;
+using XLua;
 
 public class LuaLauncher : MonoBehaviour
 {
-    NetConnector connecor;
+    LuaEnv env;
+    LuaTable ltentry;
+
+    private byte[] loader(ref string luapath)
+    {
+        return ResourceMgr_New.Instance.LoadLua(luapath);
+    }
+
+    private void bootstrap()
+    {
+        env = new LuaEnv();
+        env.AddLoader(loader);
+
+
+        string bootstrapPath = "Launcher.bootstrap_1";
+        byte[] bt = loader(ref bootstrapPath);
+
+        object[] objs = env.DoString(bt, "bootstrap_1");
+        if (objs == null || objs.Length == 0)
+        {
+            Debug.LogError($"lua launcher load bootstrap fail. path: {bootstrapPath}");
+            return;
+        }  
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        this.RegisterReceiver();
-
-        connecor = new NetConnector();
-        connecor.Connect("127.0.0.1", 1255);
+        //Test
+        //GameManager.Instance.Start();
+         
+        StartBootStrap(); 
     }
+     
 
-    public void RegisterReceiver()
+    private async void StartBootStrap(int level = 1)
     {
-        #region Message
-        MessageDispatch.RegisterReceiver<GM_Accept>(MessageID.GM_ACCEPT_SC, OnAccept);
-        #endregion
+        await UabManager.Initialize();
+        if (!UabManager.initialized)
+        {
+            Debug.LogError("UabManager initialize fail");
+            return;
+        }
+        Debug.Log("UabManager initialize success");
+         
+        bootstrap();
+        //actstart?.Invoke(); 
+
     }
 
-    public void UnRegisterReceiver()
-    {
-        #region Message
-        MessageDispatch.UnRegisterReceiver<GM_Accept>(MessageID.GM_ACCEPT_SC, OnAccept);
-
-        #endregion
-    }
-
-    // Update is called once per frame
+        // Update is called once per frame
     void Update()
     {
         
     }
-
-    private void OnAccept(GM_Accept recvData)
-    {
-        if (recvData == null)
-        {
-            return;
-        }
-
-       
-    }
-
+     
 
     void OnDisable()
     {
         Debug.Log("disable");
     }
-
-
-    void OnDestroy()
-    {
-        this.UnRegisterReceiver();
-        Debug.Log("destroy"); 
-    }
-
+     
 
 }
