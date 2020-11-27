@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2CB32B9B-D944-4C85-49DD-B73F9106857E}</ProjectGuid>
+    <ProjectGuid>{AE7A6AE2-A8E0-8568-10E7-9FF58CB261FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>UniRx.Async</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -60,166 +60,96 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Common\Logger\Logger.cs" />
-    <Compile Include="Assets\Scripts\Common\Singleton.cs" />
-    <Compile Include="Assets\Scripts\Core\Components\ComponentExtension.cs" />
-    <Compile Include="Assets\Scripts\Core\ResourceMgr_New.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Common\Dispatcher.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\Collections.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\Comparer.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\CUtils.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\ObjectPool.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\Printer.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Core\Reflection\ReflectionUtil.cs" />
-    <Compile Include="Assets\Scripts\FootStone\DataStruct\BetterList.cs" />
-    <Compile Include="Assets\Scripts\FootStone\IO\StreamHelper.cs" />
-    <Compile Include="Assets\Scripts\FootStone\IO\StringHelper.cs" />
-    <Compile Include="Assets\Scripts\FootStone\LockSetp\FSPFrame.cs" />
-    <Compile Include="Assets\Scripts\FootStone\LockSetp\FSPFrameController.cs" />
-    <Compile Include="Assets\Scripts\FootStone\LockSetp\FSPManager.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\BattleNetRunTime.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\DMsgErrorCode.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\DMsgFormat.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\DMsgKeyMainLogin.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\DMsgKeyRoot.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\Login\CLLS_Login.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\Login\DLoginNetMessage.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\Login\DMsgKeyMainLogin.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetManager.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetMessage.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetMessageHead.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetMessageSlink\CmdRootBase.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetMessageSlink\CmdRootLogin.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\Message\NetMessageSlink\CmdRootSinkManager.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetAsync\NetAsynBase.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetAsync\NetAsynReceive.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetAsync\NetAsynSend.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetBase\NetBase.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetBase\NetRecevice.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetBase\NetSend.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetHelp\MEncrypter.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetHelp\SocketInputStream.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetHelp\SocketOutputStream.cs" />
-    <Compile Include="Assets\Scripts\FootStone\Net\NetHelp\SocketStream.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Message\Protocol.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Message\Protocol.Message.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\KCP\KCP.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\Message.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\MessageDispatch.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClient.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClient.KCP.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClient.TCP.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClient.UDP.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClientAdapter.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetClientFactory.cs" />
-    <Compile Include="Assets\Scripts\FootStone\NetWork\Net.Connector\NetConnector.cs" />
-    <Compile Include="Assets\Scripts\GameLogic\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Launcher\LuaLauncher.cs" />
-    <Compile Include="Assets\Scripts\UAB\Common\UabDef.cs" />
-    <Compile Include="Assets\Scripts\UAB\Common\UabFileUtil.cs" />
-    <Compile Include="Assets\Scripts\UAB\Common\UabLog.cs" />
-    <Compile Include="Assets\Scripts\UAB\Manager\UabManager.cs" />
-    <Compile Include="Assets\Scripts\UAB\Manager\UabManager.Editor.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\01_Helloworld\Helloworld.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\02_U3DScripting\LuaBehaviour.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\04_LuaObjectOrented\InvokeLua.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\05_NoGc\NoGc.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\06_Coroutine\Coroutine_Runner.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\06_Coroutine\CoroutineTest.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\07_AsyncTest\AsyncTest.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\07_AsyncTest\MessageBox.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\08_Hotfix\HotfixTest.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\08_Hotfix\HotfixTest2.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\08_Hotfix\StatefullTest.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\09_GenericMethod\Foo.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\09_GenericMethod\GenericMethodExample.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\10_SignatureLoader\SignatureLoaderTest.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\11_RawObject\RawObjectTest.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\12_ReImplementInLua\ReImplementInLua.cs" />
-    <Compile Include="Assets\Scripts\XLua\Examples\ExampleGenConfig.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\CodeEmit.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\CopyByValue.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\DelegateBridge.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\GenAttributes.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\GenericDelegateBridge.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\InternalGlobals.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\LuaBase.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\LuaDLL.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\LuaEnv.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\LuaException.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\LuaFunction.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\LuaTable.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\MethodWarpsCache.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\ObjectCasters.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\ObjectPool.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\ObjectTranslator.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\ObjectTranslatorPool.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\RawObject.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\SignatureLoader.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\StaticLuaCallbacks.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\TemplateEngine\TemplateEngine.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\TypeExtensions.cs" />
-    <Compile Include="Assets\Scripts\XLua\Src\Utils.cs" />
-    <Compile Include="Assets\Scripts\XLua\Tutorial\CSharpCallLua\CSCallLua.cs" />
-    <Compile Include="Assets\Scripts\XLua\Tutorial\LoadLuaScript\ByFile\ByFile.cs" />
-    <Compile Include="Assets\Scripts\XLua\Tutorial\LoadLuaScript\ByString\ByString.cs" />
-    <Compile Include="Assets\Scripts\XLua\Tutorial\LoadLuaScript\Loader\CustomLoader.cs" />
-    <Compile Include="Assets\Scripts\XLua\Tutorial\LuaCallCSharp\LuaCallCs.cs" />
-    <None Include="Assets\Resources\Shader\unityshader\Chapter9_ForwardRendering.shader" />
-    <None Include="Assets\Resources\Shader\unityshader\Chapter7_RampTexture.shader" />
-    <None Include="Assets\Scripts\XLua\Examples\07_AsyncTest\Resources\message_box.lua.txt" />
-    <None Include="Assets\Scripts\XLua\Examples\06_Coroutine\Resources\cs_coroutine.lua.txt" />
-    <None Include="Assets\Resource\Shader\unityshader\ATemplate.shader" />
-    <None Include="Assets\Scripts\XLua\Examples\02_U3DScripting\LuaTestScript.lua.txt" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularVertexLevel.shader" />
-    <None Include="Assets\Resources\Shader\unityshader\Chapter6_SpecularVertexLevel.shader" />
-    <None Include="Assets\Resources\Shader\unityshader\Chapter6_SpecularBlinnPixelLevel.shader" />
-    <None Include="Assets\Scripts\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />
-    <None Include="Assets\Resources\Shader\unityshader\Chapter7_SingleTexture.shader" />
-    <None Include="Assets\Scripts\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
-    <None Include="Assets\Scripts\XLua\Examples\06_Coroutine\Resources\coruntine_test.lua.txt" />
-    <None Include="Assets\Resources\Shader\unityshader\ATemplate.shader" />
-    <None Include="Assets\Scripts\XLua\Resources\xlua\util.lua.txt" />
-    <None Include="Assets\Resource\Shader\unityshader\ScreenWaterDropEffect.shader" />
-    <None Include="Assets\Scripts\XLua\Examples\03_UIEvent\ButtonInteraction.lua.txt" />
-    <None Include="Assets\Resources\Shader\unityshader\Chapter7_MaskTexture.shader" />
-    <None Include="Assets\Resources\Shader\unityshader\Chapter7_NormalMapTangentSpace.shader" />
-    <None Include="Assets\Resources\Shader\unityshader\Chapter6_DiffusePixelLevel.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter9_ForwardRendering.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter7_MaskTexture.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter6_DiffusePixelLevel.shader" />
-    <None Include="Assets\Resources\Shader\unityshader\Chapter6_DiffuseVertexLevel.shader" />
-    <None Include="Assets\Scripts\XLua\Resources\perf\profiler.lua.txt" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularBlinnPixelLevel.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\PBR_BRDF_DEMO.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter7_SingleTexture.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter7_WorldNormal.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter7_NormalMapTangentSpace.shader" />
-    <None Include="Assets\Resources\Shader\unityshader\PBR_BRDF_DEMO.shader" />
-    <None Include="Assets\Scripts\XLua\Resources\perf\memory.lua.txt" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter7_RampTexture.shader" />
-    <None Include="Assets\Resources\Shader\unityshader\Chapter6_SpecularPixelLevel.shader" />
-    <None Include="Assets\Resources\Shader\unityshader\Chapter7_WorldNormal.shader" />
-    <None Include="Assets\Scripts\XLua\CHANGELOG.txt" />
-    <None Include="Assets\Scripts\XLua\Resources\tdr\tdr.lua.txt" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter6_DiffuseVertexLevel.shader" />
-    <None Include="Assets\Resources\Shader\unityshader\ScreenWaterDropEffect.shader" />
-    <None Include="Assets\Resource\Shader\unityshader\Chapter6_SpecularPixelLevel.shader" />
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/work/King-of-Kings/1.0/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/work/King-of-Kings/1.0/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/work/King-of-Kings/1.0/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/work/King-of-Kings/1.0/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/work/King-of-Kings/1.0/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
+    <Compile Include="Assets\Standard Assets\UniRx.Async\AsyncUnit.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\CancellationTokenEqualityComparer.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\CancellationTokenExtensions.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\CancellationTokenSourceExtensions.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\CompilerServices\AsyncMethodBuilderAttribute.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\CompilerServices\AsyncUniTaskMethodBuilder.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\CompilerServices\AsyncUniTaskVoidMethodBuilder.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\CompilerServices\MoveNextRunner.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\DiagnosticsExtensions.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\EnumerableAsyncExtensions.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\EnumeratorAsyncExtensions.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\ExceptionExtensions.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\IAwaiter.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\ArrayPool.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\ArrayPoolUtil.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\ArrayUtil.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\CancellationTokenHelper.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\ContinuationQueue.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\Error.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\Hack.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\LazyPromise.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\MinimumQueue.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\PlayerLoopRunner.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\PromiseHelper.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\ReusablePromise.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\RuntimeHelpersAbstraction.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\TaskTracker.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\UnityEqualityComparer.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Internal\WeakDictionary.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\PlayerLoopHelper.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Progress.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncAnimatorTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncAwakeTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncBeginDragTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncCancelTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncCanvasGroupChangedTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncCollision2DTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncCollisionTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncDeselectTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncDestroyTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncDragTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncDropTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncEnableDisableTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncEndDragTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncEventTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncFixedUpdateTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncInitializePotentialDragTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncJointTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncLateUpdateTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncMouseTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncMoveTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncParticleTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncPointerClickTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncPointerDownTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncPointerEnterTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncPointerExitTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncPointerUpTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncRectTransformTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncScrollTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncSelectTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncStartTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncSubmitTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncTransformChangedTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncTrigger2DTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncTriggerBase.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncTriggerExtensions.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncTriggerTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncUpdateSelectedTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncUpdateTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\Triggers\AsyncVisibleTrigger.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTask.Bridge.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTask.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTask.Delay.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTask.Factory.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTask.Run.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTask.Threading.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTask.WaitUntil.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTask.WhenAll.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTask.WhenAll.Generated.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTask.WhenAny.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTask.WhenAny.Generated.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTaskCompletionSource.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTaskExtensions.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTaskExtensions.Shorthand.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTaskObservableExtensions.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTaskScheduler.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UniTaskVoid.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UnityAsyncExtensions.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UnityAsyncExtensions.Jobs.cs" />
+    <Compile Include="Assets\Standard Assets\UniRx.Async\UnityAsyncExtensions.uGUI.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Unity2018421/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -403,6 +333,12 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
@@ -412,17 +348,59 @@
     <Reference Include="UnityEngine.Timeline">
       <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GoogleAudioSpatializer">
+      <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GoogleAudioSpatializer">
       <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>C:/Unity2018421/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>C:/Unity2018421/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>C:/Unity2018421/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>C:/Unity2018421/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>C:/Unity2018421/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.OSXStandalone.Extensions">
+      <HintPath>C:/Unity2018421/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>C:/work/King-of-Kings/1.0/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>C:/work/King-of-Kings/1.0/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Editor">
+      <HintPath>C:/work/King-of-Kings/1.0/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>C:/work/King-of-Kings/1.0/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>C:/work/King-of-Kings/1.0/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Unity2018421/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -769,20 +747,6 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:/Unity2018421/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{071734AC-1534-AC8D-BFC0-F3B3AD44D4FC}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
-    <ProjectReference Include="UniRx.Async.csproj">
-      <Project>{AE7A6AE2-A8E0-8568-10E7-9FF58CB261FD}</Project>
-      <Name>UniRx.Async</Name>
-    </ProjectReference>
-    <ProjectReference Include="UniRx.Async.Editor.csproj">
-      <Project>{B333F761-289B-2995-11D9-2BF5172713DA}</Project>
-      <Name>UniRx.Async.Editor</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
