@@ -299,15 +299,16 @@ typedef TValue *StkId;  /* index to stack elements */
 /*
 ** Header for string value; string bytes follow the end of this structure
 ** (aligned according to 'UTString'; see next).
+** 字符串结构
 */
 typedef struct TString {
   CommonHeader;
   lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
-  lu_byte shrlen;  /* length for short strings */
-  unsigned int hash;
+  lu_byte shrlen;  /* 字符串长度 length for short strings */
+  unsigned int hash;  //hash值，字符串table 索引值
   union {
-    size_t lnglen;  /* length for long strings */
-    struct TString *hnext;  /* linked list for hash table */
+    size_t lnglen;  /*  length for long strings 长字符串存储形式 */
+    struct TString *hnext;  /* linked list for hash table 链表形式存储下一个TSring，短字符串用到*/
   } u;
 } TString;
 
@@ -475,7 +476,7 @@ typedef union Closure {
 typedef union TKey {
   struct {
     TValuefields;
-    int next;  /* for chaining (offset for next node) */
+    int next;  /* 链表 管理Hash Node，用于处理hash 冲突 for chaining (offset for next node) */
   } nk;
   TValue tvk;
 } TKey;
@@ -488,21 +489,35 @@ typedef union TKey {
 	  (void)L; checkliveness(L,io_); }
 
 
+
+/**
+ * 节点格式 k=>v
+ * 节点结构：a = {x=12,mutou=99,[3]="hello"}
+ */
 typedef struct Node {
   TValue i_val;
   TKey i_key;
 } Node;
 
-
+/**
+ * Table数据结构，分两种存储类型：数组节点和hash节点
+ * 数组节点：sizearray为数字长度，一般存储key值在长度范围内的结果集
+ * hash节点：k=>v结构，能够存储各类复杂对象结构
+ *
+ * LUA语言用法：
+ * 数组节点：fruits = {"banana","orange","apple"}
+ * hash节点：a = {x=12,mutou=99,[3]="hello"}
+ * table中带table结构：local a = {{x = 1,y=2},{x = 3,y = 10}}
+ */
 typedef struct Table {
   CommonHeader;
   lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
   lu_byte lsizenode;  /* log2 of size of 'node' array */
   unsigned int sizearray;  /* size of 'array' array */
-  TValue *array;  /* array part */
-  Node *node;
-  Node *lastfree;  /* any free position is before this position */
-  struct Table *metatable;
+  TValue *array;  /*  数组方式 array part */
+  Node *node;	 //hash节点，node指向hash表的起始位置
+  Node *lastfree;  /*  hash节点，最后一个空闲节点 any free position is before this position */
+  struct Table *metatable; //元表，重载操作需要用
   GCObject *gclist;
 } Table;
 

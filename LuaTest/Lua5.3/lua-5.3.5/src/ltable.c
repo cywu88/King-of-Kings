@@ -418,6 +418,17 @@ static void rehash (lua_State *L, Table *t, const TValue *ek) {
 */
 
 
+
+/**
+ * 创建一个table
+ * table内容由luaC_newobj创建分配，并且会挂载到global_State->frealloc上统一管理
+ *
+ * Table使用方式：
+ * 数组结构：fruits = {"banana","orange","apple"}
+ * 节点结构：a = {x=12,mutou=99,[3]="hello"}
+ * table中带table结构：local a = {{x = 1,y=2},{x = 3,y = 10}}
+ */
+
 Table *luaH_new (lua_State *L) {
   GCObject *o = luaC_newobj(L, LUA_TTABLE, sizeof(Table));
   Table *t = gco2t(o);
@@ -425,11 +436,16 @@ Table *luaH_new (lua_State *L) {
   t->flags = cast_byte(~0);
   t->array = NULL;
   t->sizearray = 0;
-  setnodevector(L, t, 0);
+  setnodevector(L, t, 0);//设置节点空间
   return t;
 }
 
 
+/**
+ * 销毁一个Table
+ * 1. 先释放node节点
+ * 2. 再释放array数组
+ */
 void luaH_free (lua_State *L, Table *t) {
   if (!isdummy(t))
     luaM_freearray(L, t->node, cast(size_t, sizenode(t)));
@@ -457,6 +473,11 @@ static Node *getfreepos (Table *t) {
 ** position or not: if it is not, move colliding node to an empty place and
 ** put new key in its main position; otherwise (colliding node is in its main
 ** position), new key goes to an empty position.
+** 在Table上设置一个值，然后返回TValue对象
+** 说明：
+** 优先在t->array数组上查询，是否有节点可以存储，如果key小于arraysize，则放置在array上
+** 调用luaH_newkey，在table上寻找可以设置key的node节点，设置成功后，返回Node->i_val
+** node节点k=v形式
 */
 TValue *luaH_newkey (lua_State *L, Table *t, const TValue *key) {
   Node *mp;
@@ -606,6 +627,13 @@ const TValue *luaH_get (Table *t, const TValue *key) {
 /*
 ** beware: when using this function you probably need to check a GC
 ** barrier and invalidate the TM cache.
+
+** 在Table上设置一个值，然后返回TValue对象
+**
+** 说明：
+** 优先在t->array数组上查询，是否有节点可以存储，如果key小于arraysize，则放置在array上
+** 调用luaH_newkey，在table上寻找可以设置key的node节点，设置成功后，返回Node->i_val
+** node节点k=v形式
 */
 TValue *luaH_set (lua_State *L, Table *t, const TValue *key) {
   const TValue *p = luaH_get(t, key);
@@ -615,6 +643,13 @@ TValue *luaH_set (lua_State *L, Table *t, const TValue *key) {
 }
 
 
+/**
+ * 在Table上设置key为数字类型的节点
+ * 说明：
+ * 1. 优先在t->array数组上查询，是否有节点可以存储，如果key小于arraysize，则放置在array上
+ * 2. 如果数字大于arraysize，则在Node节点上处理
+ * 3. 如果没有查询到p，则调用luaH_newkey创建一个新的Node节点用于存储value
+ */
 void luaH_setint (lua_State *L, Table *t, lua_Integer key, TValue *value) {
   const TValue *p = luaH_getint(t, key);
   TValue *cell;
